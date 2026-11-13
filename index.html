@@ -1,1 +1,865 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Guía educativa sobre el uso complementario y seguro de maniobras Kobido en personas con parálisis facial periférica.">
+  <meta name="theme-color" content="#f8f2ef">
+  <title>Terapia Kobido y parálisis facial | TECBA</title>
+  <style>
+    :root {
+      --ink: #382b32;
+      --muted: #6d5d64;
+      --plum: #754253;
+      --plum-dark: #583242;
+      --rose: #bd7e86;
+      --rose-light: #f3e5e3;
+      --cream: #f8f2ef;
+      --paper: #fffdfb;
+      --line: #eadbd8;
+      --gold: #c9a77c;
+      --shadow: 0 18px 50px rgba(74, 45, 54, .09);
+      --radius: 22px;
+    }
 
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 86px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.65;
+    }
+
+    img { max-width: 100%; }
+    a { color: var(--plum-dark); }
+    h1, h2, h3, p { margin-top: 0; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 253, 251, .95);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav-wrap {
+      width: min(1120px, calc(100% - 40px));
+      min-height: 74px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .brand img {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+      flex: 0 0 auto;
+    }
+
+    .brand-name {
+      font-size: .77rem;
+      font-weight: 850;
+      letter-spacing: .07em;
+      line-height: 1.25;
+    }
+
+    .brand-name span {
+      display: block;
+      color: var(--plum);
+      font-size: .68rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: .89rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover { color: var(--plum); }
+
+    .menu-button {
+      display: none;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 9px 12px;
+      background: var(--paper);
+      color: var(--ink);
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    main { overflow: hidden; }
+
+    .hero {
+      padding: 82px 20px 70px;
+      background:
+        radial-gradient(ellipse at 90% 8%, rgba(189, 126, 134, .18), transparent 30%),
+        radial-gradient(ellipse at 8% 95%, rgba(201, 167, 124, .16), transparent 34%),
+        var(--paper);
+    }
+
+    .hero-inner,
+    .section-inner {
+      width: min(1080px, 100%);
+      margin: auto;
+    }
+
+    .eyebrow {
+      color: var(--plum);
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-size: .75rem;
+      font-weight: 850;
+    }
+
+    h1 {
+      max-width: 900px;
+      margin: 15px 0 18px;
+      font: 700 clamp(2.4rem, 6vw, 4.7rem)/1.07 Georgia, "Times New Roman", serif;
+      letter-spacing: -.04em;
+    }
+
+    h1 em {
+      color: var(--plum);
+      font-style: normal;
+    }
+
+    .hero-copy {
+      max-width: 780px;
+      color: var(--muted);
+      font-size: clamp(1.02rem, 2vw, 1.2rem);
+    }
+
+    .project-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .meta-pill {
+      padding: 8px 13px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 253, 251, .82);
+      color: var(--muted);
+      font-size: .87rem;
+    }
+
+    .hero-alert {
+      display: flex;
+      gap: 12px;
+      max-width: 880px;
+      margin-top: 27px;
+      padding: 17px 19px;
+      border: 1px solid #e6c5bd;
+      border-radius: 16px;
+      background: #fff5f0;
+      color: #6b423d;
+    }
+
+    .hero-alert strong { color: #57312e; }
+
+    .alert-mark {
+      font-size: 1.25rem;
+      font-weight: 900;
+    }
+
+    .jump-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 25px;
+    }
+
+    .jump-links a {
+      padding: 8px 13px;
+      border-radius: 999px;
+      background: var(--rose-light);
+      color: var(--plum-dark);
+      text-decoration: none;
+      font-size: .88rem;
+      font-weight: 750;
+    }
+
+    .section { padding: 70px 20px; }
+    .section.alt { background: #f1e8e5; }
+
+    .section-heading {
+      max-width: 780px;
+      margin-bottom: 30px;
+    }
+
+    .section-heading h2 {
+      margin: 8px 0 12px;
+      font: 700 clamp(1.95rem, 4vw, 3rem)/1.12 Georgia, "Times New Roman", serif;
+      letter-spacing: -.025em;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .notice {
+      margin-top: 20px;
+      padding: 20px 23px;
+      border-left: 4px solid var(--gold);
+      border-radius: 0 16px 16px 0;
+      background: var(--paper);
+      color: var(--muted);
+    }
+
+    .notice strong { color: var(--ink); }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 19px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .94rem;
+    }
+
+    .info-table thead {
+      background: var(--plum-dark);
+      color: #fff;
+    }
+
+    .info-table th {
+      padding: 16px;
+      text-align: left;
+      vertical-align: top;
+      font-size: .9rem;
+    }
+
+    .info-table td {
+      padding: 16px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      vertical-align: top;
+    }
+
+    .info-table tbody tr:nth-child(even) {
+      background: #fbf6f3;
+    }
+
+    .info-table tbody th[scope="row"] {
+      width: 22%;
+      padding: 16px;
+      border-top: 1px solid var(--line);
+      color: var(--ink);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .sequence-table tbody th[scope="row"] { width: 18%; }
+    .info-table strong { color: var(--ink); }
+
+    .sequence {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .sequence-card {
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--paper);
+      box-shadow: 0 10px 28px rgba(74, 45, 54, .05);
+    }
+
+    .sequence-card .step-no {
+      display: inline-grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      margin-bottom: 12px;
+      border-radius: 12px;
+      background: var(--rose-light);
+      color: var(--plum-dark);
+      font-weight: 850;
+    }
+
+    .sequence-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+    }
+
+    .sequence-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .93rem;
+    }
+
+    .safe-box {
+      padding: 24px;
+      border: 1px solid #e6c5bd;
+      border-radius: var(--radius);
+      background: #fff5f0;
+      color: #6b423d;
+    }
+
+    .safe-box h3 {
+      margin: 0 0 9px;
+      color: #57312e;
+      font: 700 1.35rem Georgia, serif;
+    }
+
+    .safe-box p:last-child { margin-bottom: 0; }
+
+    .references {
+      margin-top: 30px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+    }
+
+    .references h3 { font-size: 1rem; }
+
+    .references ul {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .references li + li { margin-top: 8px; }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .gallery figure {
+      margin: 0;
+      padding: 11px;
+      border: 1px solid var(--line);
+      border-radius: 19px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .gallery img {
+      display: block;
+      width: 100%;
+      height: 280px;
+      object-fit: contain;
+      object-position: center;
+      border-radius: 12px;
+      background: #f3eeeb;
+    }
+
+    .gallery figcaption {
+      padding: 10px 5px 2px;
+      color: var(--muted);
+      text-align: center;
+      font-size: .9rem;
+    }
+
+    .footer {
+      padding: 28px 20px;
+      background: var(--plum-dark);
+      color: #f4e9e8;
+      text-align: center;
+      font-size: .9rem;
+    }
+
+    .footer p { margin: 0; }
+    .footer strong { color: #fff; }
+
+    :focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 820px) {
+      .nav-wrap {
+        width: min(100% - 28px, 1120px);
+        min-height: 68px;
+      }
+
+      .brand img {
+        width: 46px;
+        height: 46px;
+      }
+
+      .menu-button { display: block; }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        padding: 10px 20px 16px;
+        border-bottom: 1px solid var(--line);
+        background: var(--paper);
+        box-shadow: 0 14px 24px rgba(74, 45, 54, .08);
+      }
+
+      .nav-links.open {
+        display: grid;
+        gap: 0;
+      }
+
+      .nav-links a { padding: 10px 4px; }
+      .hero { padding: 60px 20px 52px; }
+      .section { padding: 56px 20px; }
+      .sequence { grid-template-columns: repeat(2, 1fr); }
+      .gallery { gap: 12px; }
+      .gallery img { height: 220px; }
+
+      .table-wrap {
+        overflow: visible;
+        border: 0;
+        background: transparent;
+        box-shadow: none;
+      }
+
+      .info-table,
+      .info-table tbody,
+      .info-table tr,
+      .info-table td,
+      .info-table tbody th[scope="row"] {
+        display: block;
+        width: 100%;
+      }
+
+      .info-table thead {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      .info-table tbody tr {
+        margin-bottom: 14px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 17px;
+        background: var(--paper) !important;
+        box-shadow: 0 8px 22px rgba(74, 45, 54, .05);
+      }
+
+      .info-table tbody th[scope="row"] {
+        padding: 13px 16px;
+        border: 0;
+        background: var(--plum-dark);
+        color: #fff;
+      }
+
+      .info-table td {
+        padding: 12px 16px;
+        border-top: 1px solid var(--line);
+      }
+
+      .info-table td::before {
+        content: attr(data-label);
+        display: block;
+        margin-bottom: 4px;
+        color: var(--plum);
+        font-size: .72rem;
+        font-weight: 850;
+        letter-spacing: .07em;
+        text-transform: uppercase;
+      }
+    }
+
+    @media (max-width: 520px) {
+      h1 { font-size: 2.35rem; }
+      .brand-name { font-size: .68rem; }
+      .brand-name span { font-size: .6rem; }
+      .sequence { grid-template-columns: 1fr; }
+      .gallery { grid-template-columns: 1fr; }
+      .gallery img { height: 245px; }
+      .hero-alert { padding: 15px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="#inicio" aria-label="TECBA, ir al inicio">
+        <img src="TECBA.jpeg" alt="Logo del Tecnológico Boliviano Alemán">
+        <span class="brand-name">
+          TECBA
+          <span>TECNOLOGICO BOLIVIANO ALEMÁN</span>
+        </span>
+      </a>
+
+      <button
+        class="menu-button"
+        type="button"
+        aria-expanded="false"
+        aria-controls="nav-links">
+        Menú
+      </button>
+
+      <nav class="nav-links" id="nav-links" aria-label="Navegación principal">
+        <a href="#fundamento">Fundamento</a>
+        <a href="#maniobras">Maniobras</a>
+        <a href="#secuencia">Secuencia</a>
+        <a href="#seguridad">Seguridad</a>
+        <a href="#galeria">Imágenes</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-inner">
+        <span class="eyebrow">Guía visual · material educativo</span>
+        <h1>Terapia del <em>Kobido</em> en parálisis facial periférica</h1>
+        <p class="hero-copy">
+          Información orientativa sobre anatomía facial, abordaje fisioterapéutico y el uso
+          complementario de maniobras manuales Kobido.
+        </p>
+
+        <div class="project-meta">
+          <span class="meta-pill"><strong>Población objetivo del proyecto:</strong> mujeres de 30 a 35 años</span>
+          <span class="meta-pill"><strong>Autoras:</strong> Michelle Claret Gonzales Cordero y Silvia Dayana García</span>
+        </div>
+
+        <div class="hero-alert">
+          <span class="alert-mark" aria-hidden="true">!</span>
+          <div>
+            <strong>La aparición repentina de debilidad facial requiere atención médica urgente.</strong>
+            Un profesional debe evaluar la causa y descartar otras condiciones antes de iniciar
+            masajes o ejercicios. Si el ojo no cierra por completo, consulta pronto por protección ocular.
+          </div>
+        </div>
+
+        <div class="jump-links" aria-label="Enlaces rápidos">
+          <a href="#fundamento">Anatomía facial</a>
+          <a href="#maniobras">Maniobras Kobido</a>
+          <a href="#secuencia">Secuencia del proyecto</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="fundamento">
+      <div class="section-inner">
+        <div class="section-heading">
+          <span class="eyebrow">01 · Fundamento clínico y anatomía facial</span>
+          <h2>Funciones de algunos músculos de la cara</h2>
+          <p>
+            La parálisis facial periférica (PFP) afecta el nervio facial, séptimo par craneal.
+            Puede causar debilidad o pérdida del movimiento voluntario de un lado de la cara y
+            afectar el cierre ocular, la competencia labial y la expresión gestual. La intervención
+            manual requiere evaluación individual y conocimiento de la anatomía.
+          </p>
+        </div>
+
+        <div class="table-wrap">
+          <table class="info-table">
+            <thead>
+              <tr>
+                <th scope="col">Músculo facial</th>
+                <th scope="col">Función principal</th>
+                <th scope="col">Posible alteración en la PFP</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Frontal</th>
+                <td data-label="Función principal">Eleva las cejas y forma pliegues en la frente.</td>
+                <td data-label="Posible alteración en la PFP">Descenso de la ceja y disminución o pérdida de arrugas frontales.</td>
+              </tr>
+              <tr>
+                <th scope="row">Orbicular de los ojos</th>
+                <td data-label="Función principal">Cierra los párpados y contribuye a proteger la córnea.</td>
+                <td data-label="Posible alteración en la PFP">Dificultad o imposibilidad para cerrar el ojo.</td>
+              </tr>
+              <tr>
+                <th scope="row">Cigomáticos (mayor y menor)</th>
+                <td data-label="Función principal">Elevan la comisura labial al sonreír.</td>
+                <td data-label="Posible alteración en la PFP">Asimetría al sonreír y caída de la comisura labial.</td>
+              </tr>
+              <tr>
+                <th scope="row">Buccinador</th>
+                <td data-label="Función principal">Comprime la mejilla y ayuda a controlar el bolo alimenticio.</td>
+                <td data-label="Posible alteración en la PFP">Debilidad en la mejilla y posible acumulación de alimentos.</td>
+              </tr>
+              <tr>
+                <th scope="row">Orbicular de la boca</th>
+                <td data-label="Función principal">Cierra y protruye los labios; contribuye a la competencia labial.</td>
+                <td data-label="Posible alteración en la PFP">Incompetencia labial y posibles dificultades en el habla o alimentación.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="notice">
+          <strong>Nota:</strong> las manifestaciones varían según la causa, el grado y la fase clínica.
+          Esta tabla es educativa; la evaluación de la función facial debe realizarla un profesional
+          de salud.
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="abordaje">
+      <div class="section-inner">
+        <div class="section-heading">
+          <span class="eyebrow">02 · Abordaje fisioterapéutico</span>
+          <h2>Kobido como recurso complementario</h2>
+          <p>
+            La rehabilitación convencional prioriza la evaluación individual, la reeducación
+            neuromuscular y el entrenamiento motor de acuerdo con la fase clínica. Las maniobras
+            Kobido se plantean aquí como estimulación sensorial y movilización suave de tejidos
+            blandos, bajo indicación profesional.
+          </p>
+        </div>
+
+        <div class="table-wrap" id="maniobras">
+          <table class="info-table">
+            <thead>
+              <tr>
+                <th scope="col">Maniobra manual</th>
+                <th scope="col">Aplicación en tejidos blandos</th>
+                <th scope="col">Finalidad complementaria</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Deslizamientos</th>
+                <td data-label="Aplicación en tejidos blandos">
+                  Movimientos suaves siguiendo la dirección de las fibras musculares faciales,
+                  con presión cómoda y controlada.
+                </td>
+                <td data-label="Finalidad complementaria">
+                  Favorecer la percepción sensorial y la relajación tisular.
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">Fricciones</th>
+                <td data-label="Aplicación en tejidos blandos">
+                  Presión superficial y controlada sobre grupos musculares específicos,
+                  únicamente si el profesional lo considera adecuado.
+                </td>
+                <td data-label="Finalidad complementaria">
+                  Movilizar tejidos blandos y aportar estímulos propioceptivos sin provocar dolor.
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">Percusiones rítmicas</th>
+                <td data-label="Aplicación en tejidos blandos">
+                  Toques ligeros y rítmicos, ajustados a la tolerancia y al tono muscular.
+                </td>
+                <td data-label="Finalidad complementaria">
+                  Estimular la sensibilidad cutánea sin generar fatiga ni aumentar el tono muscular.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="notice">
+          <strong>Alcance de la evidencia:</strong> estas maniobras no deben interpretarse como un
+          protocolo probado de Kobido para la PFP. La información disponible sobre rehabilitación
+          facial no demuestra que Kobido regenere el nervio facial ni que cure por sí solo la
+          parálisis. Su posible uso requiere valoración profesional y debe acompañar, nunca
+          reemplazar, el tratamiento indicado.
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="secuencia">
+      <div class="section-inner">
+        <div class="section-heading">
+          <span class="eyebrow">03 · Secuencia de intervención del proyecto</span>
+          <h2>Valorar, adaptar y dar seguimiento</h2>
+          <p>
+            La secuencia organiza el proyecto educativo y el registro de cambios. La aplicación
+            clínica debe ser realizada o supervisada por profesionales habilitados.
+          </p>
+        </div>
+
+        <div class="sequence">
+          <article class="sequence-card">
+            <span class="step-no">1</span>
+            <h3>Valoración inicial</h3>
+            <p>Evaluar movilidad voluntaria y asimetría facial; detectar secuelas como hipertonía o sincinesias antes de considerar una intervención manual.</p>
+          </article>
+
+          <article class="sequence-card">
+            <span class="step-no">2</span>
+            <h3>Diseño individualizado</h3>
+            <p>Seleccionar maniobras de acuerdo con la anatomía regional, la condición clínica y las necesidades de cada participante.</p>
+          </article>
+
+          <article class="sequence-card">
+            <span class="step-no">3</span>
+            <h3>Aplicación estructurada</h3>
+            <p>Aplicar las maniobras de forma controlada y observar la respuesta neuromuscular y la comodidad en cada sesión.</p>
+          </article>
+
+          <article class="sequence-card">
+            <span class="step-no">4</span>
+            <h3>Seguimiento y comparación</h3>
+            <p>Registrar la evolución y comparar la valoración inicial y final para describir cambios en movilidad, simetría y función.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="seguridad">
+      <div class="section-inner">
+        <div class="section-heading">
+          <span class="eyebrow">04 · Seguridad y alcance clínico</span>
+          <h2>La evaluación profesional va primero</h2>
+          <p>
+            Antes de cualquier maniobra se requiere valoración profesional y revisión de posibles
+            contraindicaciones. La intervención debe detenerse si causa dolor, irritación o
+            empeoramiento de los síntomas.
+          </p>
+        </div>
+
+        <div class="safe-box">
+          <h3>Recurso complementario y educativo</h3>
+          <p>
+            La terapia Kobido no regenera el nervio facial, no demuestra eficacia curativa por sí
+            sola y no sustituye el tratamiento médico ni la rehabilitación fisioterapéutica
+            convencional. La selección de maniobras, intensidad y momento clínico corresponde al
+            equipo profesional.
+          </p>
+          <p>
+            Si la persona no puede cerrar completamente un ojo, debe consultar pronto sobre
+            protección ocular. Si la debilidad facial aparece de forma repentina, se necesita
+            evaluación médica urgente para identificar la causa.
+          </p>
+        </div>
+
+        <div class="references">
+          <h3>Referencias y lecturas</h3>
+          <ul>
+            <li>
+              Baugh, R. F. et al. (2013). <i>Clinical Practice Guideline: Bell’s Palsy</i>.
+              Guía clínica sobre evaluación, diagnóstico y cuidado ocular.
+              <a href="https://pubmed.ncbi.nlm.nih.gov/24189771/" target="_blank" rel="noopener noreferrer">PubMed</a>.
+            </li>
+            <li>
+              Dalley, A. F. y Agur, A. M. R. (2023).
+              <i>Moore’s Clinically Oriented Anatomy</i>. Referencia de anatomía clínica.
+            </li>
+            <li>
+              Lazaro et al. (2019), referencia indicada en el material del proyecto.
+              Verifique los datos bibliográficos completos antes de la entrega académica.
+            </li>
+            <li>
+              American Academy of Ophthalmology. <i>What Is Bell’s Palsy?</i>
+              Orientación sobre atención médica inmediata ante debilidad facial súbita y cuidado ocular.
+              <a href="https://www.aao.org/eye-health/diseases/bells-palsy" target="_blank" rel="noopener noreferrer">AAO</a>.
+            </li>
+            <li>
+              Cochrane. <i>Physical treatments for idiopathic facial paralysis</i>.
+              Revisión sobre tratamientos físicos y límites de la evidencia disponible.
+              <a href="https://www.cochrane.org/evidence/CD006283_physical-treatments-idiopathic-facial-paralysis" target="_blank" rel="noopener noreferrer">Resumen</a>.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="galeria">
+      <div class="section-inner">
+        <div class="section-heading">
+          <span class="eyebrow">05 · Material visual</span>
+          <h2>Imágenes de la guía</h2>
+          <p>Las imágenes conservan su proporción y se muestran completas dentro de sus marcos.</p>
+        </div>
+
+        <div class="gallery">
+          <figure>
+            <img src="KIV1.png" alt="Imagen 1 de la guía sobre terapia Kobido" loading="lazy">
+            <figcaption>Material visual · 1</figcaption>
+          </figure>
+
+          <figure>
+            <img src="KIV2.png" alt="Imagen 2 de la guía sobre terapia Kobido" loading="lazy">
+            <figcaption>Material visual · 2</figcaption>
+          </figure>
+
+          <figure>
+            <img src="KIV3.png" alt="Imagen 3 de la guía sobre terapia Kobido" loading="lazy">
+            <figcaption>Material visual · 3</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>
+      <strong>TECBA · Guía educativa sobre terapia Kobido y parálisis facial periférica</strong><br>
+      Material informativo. Consulte a profesionales cualificados para evaluación y tratamiento.
+    </p>
+  </footer>
+
+  <script>
+    const menuButton = document.querySelector(".menu-button");
+    const navLinks = document.querySelector(".nav-links");
+
+    menuButton.addEventListener("click", () => {
+      const isOpen = menuButton.getAttribute("aria-expanded") === "true";
+      menuButton.setAttribute("aria-expanded", String(!isOpen));
+      navLinks.classList.toggle("open", !isOpen);
+    });
+
+    navLinks.addEventListener("click", (event) => {
+      if (event.target.closest("a")) {
+        navLinks.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+      }
+    });
+  </script>
+</body>
+</html>
